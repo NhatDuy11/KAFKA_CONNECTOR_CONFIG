@@ -1,0 +1,28 @@
+{
+  "name": "asa_log_file_stream_v7",
+  "config": {
+    "connector.class": "io.streamthoughts.kafka.connect.filepulse.source.FilePulseSourceConnector",
+    "tasks.max": "1",
+    "transforms": "",
+    "fs.listing.class": "io.streamthoughts.kafka.connect.filepulse.fs.LocalFSDirectoryListing",
+    "fs.listing.filters": "io.streamthoughts.kafka.connect.filepulse.fs.filter.RegexFileListFilter",
+    "tasks.reader.class": "io.streamthoughts.kafka.connect.filepulse.fs.reader.LocalRowFileInputReader",
+    "topic": "asa_log_file",
+    "value.connect.schema.type": "AVRO",
+    "merge.value.connect.schemas": "true",
+    "filters": "trimColumn",
+    "fs.listing.interval.ms": "5000",
+    "fs.cleanup.policy.class": "io.streamthoughts.kafka.connect.filepulse.fs.clean.LogCleanupPolicy",
+    "allow.tasks.reconfiguration.after.timeout.ms": "1000",
+    "max.scheduled.files": "1000",
+    "fs.listing.task.delegation.enabled": "false",
+    "filters.trimColumn.type": "io.streamthoughts.kafka.connect.filepulse.filter.DelimitedRowFilter",
+    "fs.listing.directory.path": "/tmp/logf86/",
+    "tasks.file.status.storage.bootstrap.servers": "kafka.confluent.svc.cluster.local:9071",
+    "read.max.wait.ms": "60000",
+    "fs.scanner.class": "io.streamthoughts.kafka.connect.filepulse.scanner.local.LocalFSDirectoryWalker",
+    "filters.trimColumn.trimColumn": "true",
+    "internal.kafka.reporter.bootstrap.servers": "kafka.confluent.svc.cluster.local:9071",
+    "file.filter.regex.pattern": "^asa-sample_log.*\\.txt$"
+  }
+}

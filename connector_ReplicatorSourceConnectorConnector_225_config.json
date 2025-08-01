@@ -1,0 +1,19 @@
+{
+  "name": "ReplicatorSourceConnectorConnector_225",
+  "config": {
+    "connector.class": "io.confluent.connect.replicator.ReplicatorSourceConnector",
+    "tasks.max": "1",
+    "key.converter": "io.confluent.connect.replicator.util.ByteArrayConverter",
+    "value.converter": "io.confluent.connect.replicator.util.ByteArrayConverter",
+    "topic.whitelist": "TS_CS",
+    "src.key.converter": "io.confluent.connect.replicator.util.ByteArrayConverter",
+    "src.value.converter": "io.confluent.connect.replicator.util.ByteArrayConverter",
+    "src.kafka.bootstrap.servers": "192.168.1.5:9092",
+    "dest.kafka.bootstrap.servers": "kafka01:9092, kafka02:9092, kafka03:9092",
+    "topic.rename.format": "test2_${topic}",
+    "topic.auto.create": "true",
+    "topic.timestamp.type": "CreateTime",
+    "value.converter.schema.registry.url": "http://localhost:8081",
+    "key.converter.schema.registry.url": "http://localhost:8081"
+  }
+}

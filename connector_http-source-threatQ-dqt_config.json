@@ -1,0 +1,33 @@
+{
+  "name": "http-source-threatQ-dqt",
+  "config": {
+    "connector.class": "io.confluent.connect.http.HttpSourceConnector",
+    "tasks.max": "1",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "topic.name.pattern": "threatQ_collection_Aus_topic",
+    "url": "https://streamer.katalyst.local/api/indicators/",
+    "http.request.body": "hash=aa6d059d1ba9e7fe3fe6ba05edf1c2ee",
+    "http.initial.offset": "0",
+    "http.offset.mode": "SIMPLE_INCREMENTING",
+    "auth.type": "oauth2",
+    "connection.user": "thongdq",
+    "connection.password": "eVg9zjQJCFaBuFAoc3E3VKqK73QJYuZ",
+    "oauth2.token.url": "https://streamer.katalyst.local/api/token",
+    "oauth2.client.id": "mme3zmq5mtqwytlhmwvlnwqxotrkmtc3",
+    "oauth2.client.secret": "NjY2NTRhMTgyNWU1OGRmYTk5YjE4MTgwZmQzNmVjMWVmMDVlODY3ZTk1MjZmZTA2",
+    "oauth2.client.mode": "header",
+    "https.ssl.enabled": "true",
+    "https.ssl.truststore.location": "/home/confluent/streamerskylocal.jks",
+    "https.ssl.truststore.password": "abc123",
+    "confluent.topic.bootstrap.servers": "localhost:9092",
+    "confluent.topic.creation.default.cleanup.policy": "delete",
+    "confluent.topic.creation.default.partitions": "1",
+    "http.response.timeout.ms": "30000",
+    "max.poll.records": "100",
+    "confluent.topic.creation.default.retention.ms": "172800000",
+    "confluent.topic.creation.enable": "true",
+    "confluent.topic.creation.default.replication.factor": "1",
+    "value.converter.schemas.enable": "false"
+  }
+}

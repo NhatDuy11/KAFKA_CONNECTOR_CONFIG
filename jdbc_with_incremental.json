@@ -1,0 +1,29 @@
+{
+  "name": "staging_jdbc_v7",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+    "tasks.max": "1",
+    "key.converter": "io.confluent.connect.avro.AvroConverter",
+    "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "transforms": "ValueTokey, ExtractKey,TransForm",
+    "transforms.ValueTokey.type": "org.apache.kafka.connect.transforms.ValueToKey",
+    "transforms.ValueTokey.fields": "ID_INT",
+    "transforms.ExtractKey.type": "org.apache.kafka.connect.transforms.ExtractField$Key",
+    "transforms.ExtractKey.field": "ID_INT",
+    "connection.url": "jdbc:oracle:thin:@192.168.1.160:1521:dwdb",
+    "connection.user": "GGADMIN",
+    "connection.password": "ggadm132",
+    "table.whitelist": "GGADMIN.HIEULTN_KAFKA",
+    "schema.pattern": "GGADMIN",
+    "numeric.mapping": "best_fit_eager_double",
+    "dialect.name": "OracleDatabaseDialect",
+    "mode": "incrementing",
+    "incrementing.column.name": "ID_INT",
+    "validate.non.null": "false",
+    "query": "",
+    "topic.prefix": "t5_",
+    "db.timezone": "Asia/Ho_Chi_Minh",
+    "value.converter.schema.registry.url": "http://schemaregistry.confluent1.svc.cluster.local:8081",
+    "key.converter.schema.registry.url": "http://schemaregistry.confluent1.svc.cluster.local:8081"
+  }
+}
